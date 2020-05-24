@@ -22,7 +22,7 @@ function clickOrder() {
     //이름요소가 비어있다면
     let error = "";
     if (orderName == "") {
-        error=error.concat("이름을 입력해주세요!\n");
+        alert("이름을 입력해주세요!\n");
     }
 
     //수량이 비어있다면
