@@ -1,0 +1,9 @@
+.vscode/
+
+venv/
+*.jar
+*.war
+*.class
+
+.DS_Store
+

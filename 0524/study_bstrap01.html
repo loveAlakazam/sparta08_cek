@@ -46,6 +46,43 @@
                 btnPostingBox.text('포스팅박스 닫기');
             }
         }
+        //화면 로딩 준비가 잘 됏다면, -> 이 코드를 실행하라.
+        $(document).ready(function () {
+            listing();
+        });
+
+        function listing() {
+            //ajax추가하기
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/post", //서버에 저장된 조회할 url
+                data: {},
+                //요청 성공 -> 응답이 왔을때 (통신이 잘되는지 테스트)
+                success: function (response) {
+                    let articles = response['articles'];
+                    // console.log(articles);
+                    for (let i = 0; i < articles.length; i++) {
+                        let current = articles[i];
+                        console.log(current);
+
+                        make_card(current['comment'], current['desc'], current['image'], current['title'], current['url']);
+                    }
+                }
+            })
+        }
+
+
+        function make_card(comment, desc, image, title, url) {
+            let temp_html = `<div class="card">
+                                <img class="card-img-top" src="${image}" alt="Card image cap">
+                                <div class="card-body">
+                                <a href="${url}" target="_blank" class="card-title">${title}</a>
+                                <p class="card-text">${desc}</p>
+                                <p class="card-text comment">${comment}</p>
+                                </div>
+                            </div>`;
+            $('#cards-box').append(temp_html);
+        }
     </script>
 </head>
 
@@ -71,13 +108,13 @@
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">아티클 URL</label>
-                    <input id="post-url" type="email" class="form-control" id="exampleInputEmail1"
+                    <input id="post-url" type="text" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp" placeholder="">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputPassword1">간단 코멘트</label>
-                    <textarea id="post-comment" type="password" class="form-control" id="exampleInputPassword1"
+                    <textarea id="post-comment" type="text" class="form-control" id="exampleInputPassword1"
                         placeholder=""></textarea>
                 </div>
 
@@ -100,7 +137,7 @@
         <!-- 게시글 -->
         <div id="cards-box" class="card-columns">
 
-            <div class="card">
+            <!-- <div class="card">
                 <img src="https://i.ytimg.com/vi/cpNth_tjeLo/maxresdefault.jpg" class="card-img-top" alt="개가수">
                 <div class="card-body">
                     <h5 class="card-title"><a href="https://www.youtube.com/watch?v=cpNth_tjeLo">나비보벳따우</a></h5>
@@ -197,7 +234,7 @@
                     <p class="card-text">구글신님 감사합니다. 역시 검색은 구글이지!</p>
                     <p class="comment">여기에 코멘트가 들어갑니다.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
