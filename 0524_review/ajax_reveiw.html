@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script>
+        function clickBtn() {
+            let seoulUl = $('#seoulUl'); //ul 리스트를 나타냄
+
+            $.ajax({
+                type: "GET", //GET방식 - 데이터 조회
+
+                // 요청할 페이지 url
+                url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                data: {}, //post에서만 사용한다.   
+                success: function (response) { //서버로부터 url로부터 데이터 요청 성공하면, 응답해주는 함수
+                    //버튼을 클릭할때마다 비운다
+                    seoulUl.empty();
+
+                    // console.log(response);
+                    let dustData = response['RealtimeCityAir']['row'];
+                    // console.log(dustData);
+
+                    for (i in dustData) {
+                        let current = dustData[i];
+                        let city = current['MSRSTE_NM']; //지역
+                        let microMise = current['PM10']; //초미세먼지 농도
+                        let mise = current['PM25']; //미세먼지 농도
+                        // // console.log(dustData[i]);
+                        // console.log('지역이름: '+city);
+                        // console.log('초미세먼지 농도: '+ microMise);
+                        // console.log('미세먼지 농도: '+mise);
+
+                        let city_info = `<li>${city} 
+                            <ul>
+                                <li>미세먼지 농도: ${mise}</li>
+                                <li>초미세먼지 농도: ${microMise}</li>
+                            </ul>
+                            </li>`;
+                        seoulUl.append(city_info);
+                    }
+                }
+            });
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <button onclick="clickBtn()">버튼을 클릭해보세요.</button>
+    <ul id="seoulUl">
+    </ul>
+</body>
+
+</html>
