@@ -13,7 +13,7 @@
   - 소스코드
   - 달러환율이 만약 1300을 넘으면 빨간색 글씨로 표시.
 ```javascript
- //환율정보 확인하는 페이지
+//환율정보 확인하는 페이지
 //페이지 랜더링을 하게되면.
     $(document).ready(function(){
         let dollarSpan=$("#dollar_won");
@@ -34,8 +34,6 @@
                 }
                 
                 dollarSpan.append(insertHtml);
-                
-
             }
         });
     });
