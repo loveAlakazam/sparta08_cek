@@ -16,13 +16,6 @@ soup=BeautifulSoup(data.text , 'html.parser')
 musics= soup.select('#body-content > div.newest-list > div > table > tbody > tr.list')
 
 for rank, music in enumerate(musics, 1):
-    # 순위
-
-    #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.title.ellipsis
-    
-    #body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.number
-    #rank=music.select_one('td.number').text.strip()
-
     #곡제목
     title=music.select_one('td.info > a.title').text.strip()
 
