@@ -67,9 +67,11 @@ for rank, music in enumerate(musics, 1):
 
 ```
 
-- 결과 사진
+<br>
 
-![](./크롤링결과.png)
+- 결과 사진(1위~50위 곡차트 출력)
+
+![](./crawling_result.png)
 
 
 <br>
