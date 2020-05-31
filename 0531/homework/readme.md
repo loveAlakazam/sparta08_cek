@@ -67,6 +67,11 @@ for rank, music in enumerate(musics, 1):
 
 ```
 
+- 결과 사진
+
+![](./크롤링결과.png)
+
+
 <br>
 
 - mongoDB 사용하기
@@ -120,8 +125,19 @@ for rank, music in enumerate(musics, 1):
   
   print('{}노래는 현재 {}위 입니다.'.format(target['title'], target['rank'])
   ```
-  
-- 결과 사진
+
+<br>
+
+
+- 결과 사진 (원하는 곡 순위 출력)
+
+![](./target_result.png)
+
+<br>
+
+- 결과 사진 ( robo3T에 dbsparta의 musics collection에 저장된 데이터 )
+
+![](./robo3T_musics.png)
 
 
 
