@@ -1,0 +1,41 @@
+.carousel-caption{
+    height: 20%;
+}
+
+img.w-100{
+    height:400px;
+}
+
+
+#btn-groups{
+    text-align:center;
+    padding: 10px;
+}
+
+
+
+#section-container{
+    text-align:center;
+}
+
+/*테스트*/
+#music-search-container{
+    display:none; /*처음에 none로 초기화*/
+
+    margin: auto 10%;
+    width: 80%;
+    border-radius: 10px;
+    background-color:#ac4;
+    padding: 30px;
+    
+}
+
+footer{
+    padding: 20px;
+    margin-top: 15px;
+    text-align:center;
+    background-color: #fc5c;
+}
+
+
+
